@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: jaeger-demo
+
+  sleuth:
+    sampler:
+      probability: 1.0  # Sample 100% of traces for demo purposes
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.sleuth: DEBUG
+    io.opentelemetry: DEBUG 
