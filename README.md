@@ -34,6 +34,49 @@ jaeger-demo/
 └── pom.xml
 ```
 
+## File Documentation
+
+### 1. JaegerDemoApplication.java
+The main Spring Boot application class that serves as the entry point for the application.
+- Annotated with `@SpringBootApplication` to enable auto-configuration
+- Contains the `main` method that bootstraps the Spring Boot application
+- Automatically scans and configures components in the package and sub-packages
+
+### 2. JaegerConfig.java
+Configuration class for Jaeger tracing setup.
+- Configures the OpenTelemetry SDK
+- Sets up the Jaeger exporter
+- Defines sampling strategy and trace configuration
+- Configures resource attributes for better trace identification
+
+### 3. JaegerTelemetryConfiguration.java
+Additional telemetry configuration for the application.
+- Sets up OpenTelemetry instance
+- Configures trace exporters
+- Defines sampling strategy
+- Sets up resource attributes for service identification
+
+### 4. JaegerExample.java
+Demonstration class showing how to create and use spans in your application.
+- Contains `mySampleUseCase()` method that demonstrates span creation
+- Shows how to add events to spans
+- Demonstrates proper span lifecycle management
+- Includes a simulated workload to demonstrate timing in traces
+
+### 5. SampleController.java
+REST controller that exposes endpoints for generating traces.
+- Exposes a `/sample` endpoint
+- Demonstrates how to use the JaegerExample class in a web context
+- Shows how to generate multiple traces in a single request
+- Returns a message directing users to check the Jaeger UI
+
+### 6. application.yml
+Configuration file for the Spring Boot application.
+- Sets application name and server port
+- Configures Spring Cloud Sleuth sampling rate
+- Enables management endpoints
+- Sets up logging levels for tracing components
+
 ## Setup and Running
 
 ### 1. Start Jaeger
